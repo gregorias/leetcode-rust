@@ -34,7 +34,7 @@ mod add_two_numbers {
         let mut carry: i32 = 0;
         let mut output_head: Option<Box<ListNode>> = None;
         // Now the mutable tail
-        let mut output_tail: &Option<Box<ListNode>> = &mut output_head;
+        let mut output_tail: &mut Option<Box<ListNode>> = &mut output_head;
 
         while carry > 0 || l_cursor.is_some() || r_cursor.is_some() {
             let (l_val, r_val) = (
@@ -43,7 +43,7 @@ mod add_two_numbers {
             );
             let (sum, carry) = add_carry(l_val, r_val, carry);
             *output_tail = Some(Box::new(ListNode::new(sum)));
-            output_tail = output_tail.as_mut().map_or(output_head, |node| &mut node.next);
+            output_tail = &mut output_tail.as_mut().unwrap().next;
 
             (l_cursor, r_cursor) = (get_next(l_cursor), get_next(r_cursor));
         }
