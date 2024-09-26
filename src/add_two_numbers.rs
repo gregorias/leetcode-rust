@@ -43,6 +43,8 @@ mod add_two_numbers {
             );
             let (sum, carry) = add_carry(l_val, r_val, carry);
             *output_tail = Some(Box::new(ListNode::new(sum)));
+            // I couldn’t figure out how to do this without the unwrap or another kind of
+            // unwrapping. The (overly strict) borrow checker is in the way.
             output_tail = &mut output_tail.as_mut().unwrap().next;
 
             (l_cursor, r_cursor) = (get_next(l_cursor), get_next(r_cursor));
