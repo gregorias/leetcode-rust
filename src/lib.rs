@@ -6,3 +6,5 @@ mod add_two_numbers;
 mod longest_substring_without_repeating_characters;
 // 019
 mod remove_nth_node_from_end_of_list;
+// 023
+mod merge_k_sorted_lists;
