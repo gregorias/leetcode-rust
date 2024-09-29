@@ -3,7 +3,7 @@
 #![allow(unused)]
 mod add_two_numbers {
     #[derive(PartialEq, Eq, Clone, Debug)]
-    pub struct ListNode {
+    struct ListNode {
         pub val: i32,
         pub next: Option<Box<ListNode>>,
     }
@@ -24,7 +24,7 @@ mod add_two_numbers {
         node.and_then(|node| node.next.as_deref())
     }
 
-    pub fn add_two_numbers(
+    fn add_two_numbers(
         l1: Option<Box<ListNode>>,
         l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
